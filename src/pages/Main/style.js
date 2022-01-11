@@ -81,5 +81,25 @@ export const List = styled.ul`
       flex-direction: row
       align-items: center;
       justify-content: space-between;
+      //vai ingnorar o primeiro li
+      & + li {
+         border-top: 1px solid #eee;
+      }
+
+      a {
+         color: #0d2636;
+         text-decoration: none
+      }
    }
 `;
+
+export const DeleButton = styled.button.attrs({
+   type: 'button',
+})`
+   background: transparent;
+   color: #0d2636;
+   border: 0;
+   padding: 8px 7px;
+   outline: 0;
+`;
+
