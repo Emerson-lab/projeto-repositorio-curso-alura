@@ -88,7 +88,13 @@ export const List = styled.ul`
 
       a {
          color: #0d2636;
-         text-decoration: none
+         text-decoration: none;
+         cursor: pointer;
+      }
+
+      img {
+         width: 25px;
+         height: 25px;
       }
    }
 `;
