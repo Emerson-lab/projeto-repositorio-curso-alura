@@ -11,22 +11,22 @@ export default function Main() {
   const [alert, setAlert] = useState(null);
 
   //DidMount Buscar
- useEffect(() => {
-   const repoStorage = localStorage.getItem('repos');
+  useEffect(() => {
+    const repoStorage = localStorage.getItem("repos");
 
-   if(repoStorage) {
-     setRepositorios(JSON.parse(repoStorage));
-   }
- }, [])
+    if (repoStorage) {
+      setRepositorios(JSON.parse(repoStorage));
+    }
+  }, []);
 
   //DidUpdate Salvar alterações
   useEffect(() => {
-    localStorage.setItem('repos', JSON.stringify(repositorios));
-  },[repositorios]);
+    localStorage.setItem("repos", JSON.stringify(repositorios));
+  }, [repositorios]);
 
   function handleinputChange(e) {
     setNewRepo(e.target.value);
-    setAlert(null)
+    setAlert(null);
   }
 
   const handleDelete = useCallback(
@@ -58,6 +58,7 @@ export default function Main() {
 
           const data = {
             name: response.data.full_name,
+            avatar: response.data.owner.avatar_url,
           };
 
           setRepositorios([...repositorios, data]);
@@ -98,7 +99,7 @@ export default function Main() {
           )}
         </SubmitButton>
       </Form>
-      
+
       <List>
         {repositorios.map((repo) => (
           <li key={repo.name}>
@@ -108,8 +109,8 @@ export default function Main() {
               </DeleButton>
               {repo.name}
             </span>
-            <a href={repo.url}>
-              <FaBars size={20} />
+            <a href={repo.html_url}>
+              <img src={repo.avatar} />
             </a>
           </li>
         ))}
