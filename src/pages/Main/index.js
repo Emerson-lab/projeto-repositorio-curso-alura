@@ -1,6 +1,8 @@
+import { Container, Form, SubmitButton, List, DeleButton } from "./style";
+
 import React, { useState, useCallback, useEffect } from "react";
 import { FaGithub, FaPlus, FaSpinner, FaBars, FaTrash } from "react-icons/fa";
-import { Container, Form, SubmitButton, List, DeleButton } from "./style";
+import {Link} from 'react-router-dom';
 
 import api from "../../services/api";
 
@@ -109,9 +111,9 @@ export default function Main() {
               </DeleButton>
               {repo.name}
             </span>
-            <a href={repo.html_url}>
+            <Link to={`/repositorio/${encodeURIComponent(repo.name) }`}>
               <img src={repo.avatar} />
-            </a>
+            </Link>
           </li>
         ))}
       </List>
