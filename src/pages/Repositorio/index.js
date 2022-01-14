@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../services/api";
-import { Container } from "./styles";
+import { Container, Owner, Loading } from "./styles";
 
 export default function Repositorio({ match }) {
   const [repositorio, setRepositorio] = useState({});
@@ -27,9 +27,26 @@ export default function Repositorio({ match }) {
     load();
   }, [match.params.repositorio]);
 
+  if(loading) {
+    return (
+      <Loading>
+        Carregando...
+      </Loading>
+    )
+  }
+
   return (
     <div>
-      <Container style={{ color: "#fff" }}>{repositorio.data}</Container>
+      <Container>
+        <Owner>
+          <img
+            src={repositorio.owner.avatar_url}
+            alt={repositorio.owner.login}
+          />
+          <h1>{repositorio.name}</h1>
+          <p>{repositorio.description}</p>
+        </Owner>
+      </Container>
     </div>
   );
 }
