@@ -112,7 +112,7 @@ export default function Main() {
               {repo.name}
             </span>
             <Link to={`/repositorio/${encodeURIComponent(repo.name) }`}>
-              <img src={repo.avatar} />
+              <img src={repo.avatar} alt={repo.name}/>
             </Link>
           </li>
         ))}
