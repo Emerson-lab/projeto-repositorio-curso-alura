@@ -14,6 +14,48 @@ export const BackButton = styled(Link)`
   outline: 0;
 `;
 
+export const FilterList = styled.div`
+  margin: 15px 0;
+
+  button {
+    outline: 0;
+    border: 0;
+    border-radius: 4px;
+    padding: 8px;
+    margin: 0 3px;
+    transition: 0.2s;
+
+    &:hover {
+      filter: opacity(0.8);
+    }
+
+    &:nth-child(${props => props.active + 1}) {
+      background: #0071bd;
+      color: #fff;
+    }
+  }
+`;
+
+export const PageActions = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    outline: 0;
+    border: 0;
+    background: #222;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+`;
+
 export const IssuesList = styled(Link)`
   margin-top: 30px;
   padding-top: 30px;
